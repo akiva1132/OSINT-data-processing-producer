@@ -1,0 +1,32 @@
+{
+  "name": "osint-data-processing-producer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm-run-all --parallel watch:typescript start:dev",
+    "watch:typescript": "tsc --watch ",
+    "start:dev": "nodemon ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "input": "^1.0.1",
+    "inquirer": "^9.2.12",
+    "kafkajs": "^2.2.4",
+    "natural": "^6.10.4",
+    "nodemon": "^3.0.2",
+    "npm-run-all": "^4.1.5",
+    "prompts": "^2.4.2",
+    "telegram": "^2.19.10",
+    "tsc": "^2.0.4",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.10.6",
+    "@types/prompts": "^2.4.9"
+  }
+}
