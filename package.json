@@ -12,11 +12,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.5",
+    "bing-translate-api": "^3.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "compromise": "^14.11.0",
     "dotenv": "^16.3.1",
+    "google-search-results-nodejs": "^2.1.0",
     "input": "^1.0.1",
     "inquirer": "^9.2.12",
     "kafkajs": "^2.2.4",
     "natural": "^6.10.4",
+    "newsapi": "^2.4.1",
+    "nlp": "^0.0.0",
     "nodemon": "^3.0.2",
     "npm-run-all": "^4.1.5",
     "prompts": "^2.4.2",
@@ -26,6 +33,7 @@
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
+    "@types/jsdom": "^21.1.6",
     "@types/node": "^20.10.6",
     "@types/prompts": "^2.4.9"
   }
