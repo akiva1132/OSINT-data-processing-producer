@@ -18,13 +18,12 @@ const cheerio_1 = __importDefault(require("cheerio"));
 const search = new google_search_results_nodejs_1.default.GoogleSearch("2465e1286e397a4fe1f495e2d42dd7734fae331b074ce38b93490e5e2e77637b");
 search.json({
     tbm: "nws",
-    q: "תפילין",
+    q: "מכבי תל אביב",
     location: "Austin, TX",
     hl: "iw",
     gl: "il"
 }, (result) => {
-    console.log();
-    getH1H2Content(result.news_results[0])
+    getH1H2Content(result.news_results[0].link)
         .then(result => {
         console.log('H1 Content:', result.h1);
         console.log('H2 Content:', result.h2);
