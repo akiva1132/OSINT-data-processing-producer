@@ -23,7 +23,15 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             return null;
         const dataFromsearchGoogle = yield (0, google_1.searchGoogle)(resultString);
         if (dataFromsearchGoogle)
-            return { data: dataFromsearchGoogle, topic: resultString };
+            return {
+                title: dataFromsearchGoogle.title,
+                link: dataFromsearchGoogle.link,
+                snippet: dataFromsearchGoogle.snippet,
+                date: dataFromsearchGoogle.date,
+                source: dataFromsearchGoogle.source,
+                imageUrl: dataFromsearchGoogle.imageUrl,
+                topic: resultString,
+            };
         return { data: "not result", topic: resultString };
     }));
     const results = yield Promise.all(promises);
@@ -31,4 +39,4 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     (0, producer_1.send)(JSON.stringify(results));
 });
 main();
-setInterval(main, 60000);
+setInterval(main, 600000);
