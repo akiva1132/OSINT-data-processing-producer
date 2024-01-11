@@ -10,26 +10,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const google_1 = require("./google");
-require("./configuration/tf-idf");
 const topicsApi_1 = require("./topicsApi");
 const producer_1 = require("./producer");
-// import "./configuration/google"
-const mainFunc = () => __awaiter(void 0, void 0, void 0, function* () {
+const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const topics = yield (0, topicsApi_1.getDataFromTopicsApi)();
     const promises = topics.map((topic) => __awaiter(void 0, void 0, void 0, function* () {
         if ((topic)[0].length <= 1 || (topic)[1].length <= 1) {
-            return { [topic[0] + topic[1]]: "not result1" };
+            return { data: "not result1", topic: topic[0] + topic[1] };
         }
         const resultString = topic.join(' ');
         if (resultString.length < 2)
             return null;
         const dataFromsearchGoogle = yield (0, google_1.searchGoogle)(resultString);
         if (dataFromsearchGoogle)
-            return { [resultString]: dataFromsearchGoogle };
-        return { [resultString]: "not result" };
+            return { data: dataFromsearchGoogle, topic: resultString };
+        return { data: "not result", topic: resultString };
     }));
     const results = yield Promise.all(promises);
     console.log(results);
     (0, producer_1.send)(JSON.stringify(results));
 });
-setInterval(mainFunc, 100000);
+main();
+setInterval(main, 60000);
