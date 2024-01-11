@@ -15,6 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getH1H2Content = exports.searchGoogle = void 0;
 const cheerio_1 = __importDefault(require("cheerio"));
 const axios_1 = __importDefault(require("axios"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+const X_API_KEY = process.env.X_API_KEY || "";
 const searchGoogle = (query) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = JSON.stringify({ "q": query });
@@ -22,7 +25,7 @@ const searchGoogle = (query) => __awaiter(void 0, void 0, void 0, function* () {
             method: 'post',
             url: 'https://google.serper.dev/news',
             headers: {
-                'X-API-KEY': '7b436c23da91edfd234553b5491a2b62a14e24ba',
+                'X-API-KEY': X_API_KEY,
                 'Content-Type': 'application/json'
             },
             data: data
